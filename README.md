@@ -7,20 +7,20 @@ iframefileupload.js使用原生JS实现页面无刷新的情况下上传文件�
 ### 配置项
 ``` javascript
 iframefileupload({
-		type : 'post', // 传输方式，get或post，如果不设置，则默认为post
-		url : './test.php', // 后端url地址
-		elementId : ['file1', 'file2'], // 上传文件的input表单的id数组集合
-		data : { // 要传给后端的data数据
-			name : 'zym',
-			blog : 'zymseo.com'
-		},
-		success : function (res) {
-			console.log(JSON.parse(res)); // 执行成功之后的回调函数
-		},
-		error : function (res) {
-			console.log(res); // 执行失败之后的回调函数
-		}
-	});
+	type : 'post', // 传输方式，get或post，如果不设置，则默认为post
+	url : './test.php', // 后端url地址
+	elementId : ['file1', 'file2'], // 上传文件的input表单的id数组集合
+	data : { // 要传给后端的data数据
+		name : 'zym',
+		blog : 'zymseo.com'
+	},
+	success : function (res) {
+		console.log(JSON.parse(res)); // 执行成功之后的回调函数
+	},
+	error : function (res) {
+		console.log(res); // 执行失败之后的回调函数
+	}
+});
 ```
 
 ### html
