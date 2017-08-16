@@ -73,10 +73,12 @@
 			i = 0,
 			submitTimer = null,
 			getDataTimer = null;
-
-		for (; i < _elementIdLen; i += 1) {
-			tmpNode = oDoc.querySelector('#' +_elementId[i]).cloneNode(true);
-			form.appendChild(tmpNode);
+		
+		if (_elementIdLen) {
+			for (; i < _elementIdLen; i += 1) {
+				tmpNode = oDoc.querySelector('#' +_elementId[i]).cloneNode(true);
+				form.appendChild(tmpNode);
+			}
 		}
 
 		submitTimer = setTimeout(function () {
