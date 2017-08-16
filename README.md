@@ -1,14 +1,10 @@
-iframefileupload.js
-
-插件介绍：
+# iframefileupload.js插件介绍
 
 iframefileupload.js使用原生JS实现页面无刷新的情况下上传文件，在上传文件的同时也可以向后端传递json数据等。
 
-同时支持AMD及ES6写法，你可以通过script标签、require方法或import等方式引入。
-
-使用示例：
-
-(1)script标签引入：
+##使用说明
+###（1）script标签引入
+``` javascript
 <script type="text/javascript" src="iframefileupload.js"></script>
 <script type="text/javascript">
 	iframefileupload({
@@ -27,9 +23,9 @@ iframefileupload.js使用原生JS实现页面无刷新的情况下上传文件�
 		}
 	});
 </script>
-
-(2)require方法异步引入：
-<!-- main.js -->
+```
+### （2）require方法异步引入：
+``` javascript
 require(['iframefileupload'], function (iframefileupload) {
 	iframefileupload({
 		type : 'post',
@@ -47,9 +43,9 @@ require(['iframefileupload'], function (iframefileupload) {
 		}
 	});
 });
-
-(3)ES6语法引入：
-<!-- main.js -->
+```
+### （3）ES6语法引入：
+``` javascript
 import iframefileupload from './iframefileupload.js';
 iframefileupload({
 	type : 'post',
@@ -66,3 +62,7 @@ iframefileupload({
 		console.log(res);
 	}
 });
+```
+### 插件遵循Apache开源许可协议
+- 博客：[@赵一鸣](http://www.zymseo.com)
+- QQ：1047832475
