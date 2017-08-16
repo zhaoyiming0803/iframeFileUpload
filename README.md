@@ -81,6 +81,7 @@ $data = $_POST;
 echo json_encode($files); // 向前端展示结果，判断是否接受成功，仅供测试
 // echo json_encode($data); // 向前端展示结果，判断是否接受成功，仅供测试
 ```
+### iframeFileUpload.js可与[@文件校验插件](https://github.com/zymseo/validateFileUpload)配合使用！
 ### 插件遵循Apache开源许可协议
 - 博客：[@赵一鸣](http://www.zymseo.com)
 - QQ：1047832475
