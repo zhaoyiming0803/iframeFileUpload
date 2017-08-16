@@ -4,6 +4,14 @@ iframefileupload.js使用原生JS实现页面无刷新的情况下上传文件�
 
 ### 使用说明
 
+### html
+
+``` html
+<input type="file" name="file1" id="file1" />
+<input type="file" name="file2" id="file2" />
+<input type="button" value="提交" id="btn" />
+```
+
 ### （1）script标签引入
 
 ``` javascript
