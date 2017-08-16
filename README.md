@@ -1,6 +1,6 @@
 # iframefileupload.js插件介绍
 
-iframefileupload.js使用原生JS实现页面无刷新的情况下上传文件，在上传文件的同时也可以向后端传递json数据等。
+iframefileupload.js使用原生JS实现页面无刷新的情况下上传文件，同时脱离jquery和ajax，用最少的代码库依赖实现上传文件的同时也可以向后端传递json数据等。
 
 ### 使用说明
 
