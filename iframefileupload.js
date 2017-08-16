@@ -59,8 +59,8 @@
 		var opt = this.opt,
 			_type = opt.type ? opt.type : 'post', // 传输方式：get/post
 			_url = opt.url, // 后端url
-			_elementId = typeof opt.elementId === 'string' ? [opt.elementId] : opt.elementId, // input类型为file的id数组集合
-			_elementIdLen = _elementId.length,
+			_elementId = typeof opt.elementId === 'string' ? [opt.elementId] : opt.elementId ? opt.elementId : false, // input类型为file的id数组集合
+			_elementIdLen = _elementId ? _elementId.length : 0,
 			_data = opt.data, // 后端通过get或post接收到数据
 			_success = opt.success, // 成功时回调
 			_error = opt.error, // 错误时回调
