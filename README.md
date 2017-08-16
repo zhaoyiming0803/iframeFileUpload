@@ -6,7 +6,7 @@ iframefileupload.js使用原生JS实现页面无刷新的情况下上传文件�
 
 ### 配置项
 ``` javascript
-iframefileupload({
+iframeFileUpload({
 	type : 'post', // 传输方式，get或post，如果不设置，则默认为post
 	url : './test.php', // 后端url地址
 	elementId : ['file1', 'file2'], // 上传文件的input表单的id数组集合
@@ -34,9 +34,9 @@ iframefileupload({
 ### （1）script标签引入
 
 ``` javascript
-<script type="text/javascript" src="iframefileupload.js"></script>
+<script type="text/javascript" src="iframeFileUpload.js"></script>
 <script type="text/javascript">
-	iframefileupload({
+	iframeFileUpload({
 		type : 'post',
 		url : './test.php',
 		elementId : ['file1', 'file2'],
@@ -55,8 +55,8 @@ iframefileupload({
 ```
 ### （2）require方法异步引入：
 ``` javascript
-require(['iframefileupload'], function (iframefileupload) {
-	iframefileupload({
+require(['iframeFileUpload'], function (iframeFileUpload) {
+	iframeFileUpload({
 		type : 'post',
 		url : './test.php',
 		elementId : ['file1', 'file2'],
@@ -75,8 +75,8 @@ require(['iframefileupload'], function (iframefileupload) {
 ```
 ### （3）ES6语法引入：
 ``` javascript
-import iframefileupload from './iframefileupload.js';
-iframefileupload({
+import iframeFileUpload from './iframeFileUpload.js';
+iframeFileUpload({
 	type : 'post',
 	url : './test.php',
 	elementId : ['file1', 'file2'],
