@@ -30,6 +30,7 @@
 		var formId = 'form' + id,
 			tmpInpt = null,
 			formHtml = '<form action="'+ url +'" target="iframe'+ id +'" name="fileinfo" method="POST" enctype="multipart/form-data" id="'+ formId +'" style="display:none;">';
+		
 		for (var prop in data) {
 			formHtml += '<input type="text" name="'+ prop +'" value="'+ data[prop] +'" />';
 		}
