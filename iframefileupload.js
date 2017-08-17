@@ -72,7 +72,8 @@
 			tmpNode = null,
 			i = 0,
 			submitTimer = null,
-			getDataTimer = null;
+			getDataTimer = null,
+			iframeContent = '';
 		
 		if (_elementIdLen) {
 			for (; i < _elementIdLen; i += 1) {
@@ -83,16 +84,21 @@
 
 		submitTimer = setTimeout(function () {
 			formSubmit(form);
+			iframeContent = iframe.contentWindow.document.body.innerHTML;
 		}, 200);
 
-		getDataTimer = setTimeout(function () {
-			try {
-				_success(getData(iframe));
-			} catch (e) {
-				_error(e);
+		getDataTimer = setInterval(function () {
+			if (iframeContent !== iframe.contentWindow.document.body.innerHTML) {
+				try {
+					_success(getData(iframe));
+				} catch (e) {
+					_error(e);
+				}
+				iframe = form = opt = null;
+				clearTimeout(submitTimer);
+				clearInterval(getDataTimer);
 			}
-			submitTimer = getDataTimer = iframe = form = opt = null;
-		}, 400);
+		}, 100);
 	};
 
 	// 初始化对象，获取参数
