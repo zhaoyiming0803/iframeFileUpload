@@ -96,7 +96,7 @@ iframeFileUpload({
 ``` php
 $files = $_FILES;
 $data = $_POST;
-sleep(5); // 模拟后端处理处理，即使需要很长时间，也可以保证前端能正常接收到返回值。
+sleep(5); // 模拟后端处理数据，即使需要很长时间，也要确保前端能正常接收到返回值。
 echo json_encode($files); // 向前端展示结果，判断是否接受成功，仅供测试
 // echo json_encode($data); // 向前端展示结果，判断是否接受成功，仅供测试
 ```
