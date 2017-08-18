@@ -96,7 +96,7 @@ iframeFileUpload({
 ``` php
 $files = $_FILES;
 $data = $_POST;
-sleep(5); // Simulation of the back-end processing data, even if it takes a long time, ensures that the front end can receive normal return values.
+sleep(5); // Simulation of the back-end processing data, even if it takes a long time, ensures that the front end can receive data from back-end.
 echo json_encode($files); 
 // echo json_encode($data); 
 ```
