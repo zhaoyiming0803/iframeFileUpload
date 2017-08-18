@@ -1,6 +1,6 @@
 # iframefileupload.js introduction
 
-Iframefileupload.Js use native js implementation without refresh the page to upload files, at the same time from the jquery and ajax, with the least amount of code libraries depend on the realization of upload files at the same time, it can be passed to back-end json data, etc.
+Iframefileupload.Js use native js implementation without refresh the page to upload files, at the same time out of the jquery and ajax, with the least amount of code libraries depend on the realization of upload files at the same time, it can be passed to back-end json data, etc.
 
 ### Introductions of use
 
