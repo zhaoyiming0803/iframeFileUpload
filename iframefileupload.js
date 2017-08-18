@@ -1,7 +1,10 @@
 /*
- * Description: iframefileupload.js
+ * Description: Iframefileupload.Js use native js implementation without refresh the page to upload files, 
+ * at the same time from the jquery and ajax, with the least amount of code libraries depend on the realization of upload files at the same time, 
+ * it can be passed to back-end json data, etc.
  * User: zymseo.com
  * Date: 2017/08/15
+ * Released under Apache2.0 license, https://github.com/zymseo/iframeFileUpload
 */
 
 ;(function (global, factory) {
@@ -10,14 +13,14 @@
 })(this, function () {
 	'use strict';
 
-	// 字符串转为dom对象
+	// The string is converted to a dom object
 	function strToDom (str) {
 		var oDiv = document.createElement("div");
 		oDiv.innerHTML = str;
 		return oDiv.childNodes[0];
 	}
 	
-	// 创建iframe
+	// Create an iframe
 	function createUploadIframe (oDoc, oBody, id) {
 		var iframeId = 'iframe' + id,
 			iframeHtml = '<iframe name="'+ iframeId +'" id="'+ iframeId +'" src="about:blank" frameborder="0" style="display:none;"></iframe>';
@@ -25,7 +28,7 @@
 		return oDoc.querySelector('#' + iframeId);
 	}
 	
-	// 创建form表单
+	// Create a form
 	function createUploadForm (oDoc, oBody, url, data, id, method) {
 		var formId = 'form' + id,
 			tmpInpt = null,
@@ -40,33 +43,33 @@
 		return oDoc.querySelector('#' + formId);
 	}
 
-	// 提交form表单
+	// Submit form
 	function formSubmit (oForm) {
 		oForm.submit();
 	}
 
-	// 获取后端返回的数据
+	// Gets the data returned from the back end
 	function getData (oForm) {
 		return oForm.contentWindow.document.body.innerHTML;
 	}
 	
-	// 上传类
+	// The upload class
 	function IframeFileUpload (opt) {
 		this.opt = opt;
 	}
 
 	IframeFileUpload.prototype.init = function () {
 		var opt = this.opt,
-			_type = opt.type ? opt.type : 'post', // 传输方式：get/post
-			_url = opt.url, // 后端url
-			_elementId = typeof opt.elementId === 'string' ? [opt.elementId] : opt.elementId ? opt.elementId : false, // input类型为file的id数组集合
+			_type = opt.type ? opt.type : 'post', // get/post
+			_url = opt.url, // back-end url
+			_elementId = typeof opt.elementId === 'string' ? [opt.elementId] : opt.elementId ? opt.elementId : false, // a collection of the array of ids
 			_elementIdLen = _elementId ? _elementId.length : 0,
-			_data = opt.data, // 后端通过get或post接收到数据
-			_success = opt.success, // 成功时回调
-			_error = opt.error, // 错误时回调
+			_data = opt.data, // data to back-end
+			_success = opt.success, // callback of success
+			_error = opt.error, // callback of error
 			oDoc = document,
 			oBody = oDoc.body,
-			id = new Date().getTime(), // 随机ID
+			id = new Date().getTime(), // random id
 			iframe = createUploadIframe(oDoc, oBody, id),
 			form = createUploadForm(oDoc, oBody, _url, _data, id, _type),
 			tmpNode = null,
@@ -101,7 +104,7 @@
 		}, 100);
 	};
 
-	// 初始化对象，获取参数
+	// Initialize the object to get the parameters
 	function iframeFileUpload (opt) {
 		new IframeFileUpload(opt).init();
 	}
