@@ -4,7 +4,7 @@ Iframefileupload.Js use native js implementation without refresh the page to upl
 
 ### Introductions of use
 
-### 配置项
+### configuration
 ``` javascript
 iframeFileUpload({
 	type : 'post', // get/post
