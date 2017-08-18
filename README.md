@@ -1,24 +1,24 @@
-# iframefileupload.js插件介绍
+# iframefileupload.js introduction
 
-iframefileupload.js使用原生JS实现页面无刷新的情况下上传文件，同时脱离jquery和ajax，用最少的代码库依赖实现上传文件的同时也可以向后端传递json数据等。
+Iframefileupload.Js use native js implementation without refresh the page to upload files, at the same time from the jquery and ajax, with the least amount of code libraries depend on the realization of upload files at the same time, it can be passed to back-end json data, etc.
 
-### 使用说明
+### Introductions of use
 
 ### 配置项
 ``` javascript
 iframeFileUpload({
-	type : 'post', // 传输方式，get或post，如果不设置，则默认为post
-	url : './test.php', // 后端url地址
-	elementId : ['file1', 'file2'], // 上传文件的input表单的id数组集合
-	data : { // 要传给后端的data数据
+	type : 'post', // get/post
+	url : './test.php', // back-end url
+	elementId : ['file1', 'file2'], // a collection of the array of ids
+	data : { // data to back-end
 		name : 'zym',
 		blog : 'zymseo.com'
 	},
 	success : function (res) {
-		console.log(JSON.parse(res)); // 执行成功之后的回调函数
+		console.log(JSON.parse(res)); // callback of success
 	},
 	error : function (res) {
-		console.log(res); // 执行失败之后的回调函数
+		console.log(res); // callback of error
 	}
 });
 ```
@@ -31,7 +31,7 @@ iframeFileUpload({
 <input type="button" value="提交" id="btn" />
 ```
 
-### （1）script标签引入
+### （1）script tag:
 
 ``` javascript
 <script type="text/javascript" src="iframeFileUpload.js"></script>
@@ -53,7 +53,7 @@ iframeFileUpload({
 	});
 </script>
 ```
-### （2）require方法异步引入：
+### （2）require async:
 ``` javascript
 require(['iframeFileUpload'], function (iframeFileUpload) {
 	iframeFileUpload({
@@ -73,7 +73,7 @@ require(['iframeFileUpload'], function (iframeFileUpload) {
 	});
 });
 ```
-### （3）ES6语法引入：
+### （3）ES6 grammar：
 ``` javascript
 import iframeFileUpload from './iframeFileUpload.js';
 iframeFileUpload({
@@ -92,15 +92,15 @@ iframeFileUpload({
 	}
 });
 ```
-### 后端PHP：
+### PHP：
 ``` php
 $files = $_FILES;
 $data = $_POST;
-sleep(5); // 模拟后端处理数据，即使需要很长时间，也要确保前端能正常接收到返回值。
-echo json_encode($files); // 向前端展示结果，判断是否接受成功，仅供测试
-// echo json_encode($data); // 向前端展示结果，判断是否接受成功，仅供测试
+sleep(5); // Simulation of the back-end processing data, even if it takes a long time, ensures that the front end can receive normal return values.
+echo json_encode($files); 
+// echo json_encode($data); 
 ```
 ### iframeFileUpload.js可与[@文件校验插件](https://github.com/zymseo/validateFileUpload)配合使用！
-### 插件遵循Apache开源许可协议
+### Released under Apache2.0 license
 - 博客：[@赵一鸣](http://www.zymseo.com)
 - QQ：1047832475
