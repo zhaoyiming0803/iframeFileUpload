@@ -1,6 +1,6 @@
 # iframefileupload.js introduction
 
-Iframefileupload.Js use native js implementation without refresh the page to upload files, at the same time out of the jquery and ajax, with the least amount of code libraries depend on the realization of upload files at the same time, it can be passed to back-end json data, etc.
+Iframefileupload.js使用原生JS编写，无需依赖如jQuery等第三方插件库，实现页面无刷新文件上传，兼容script标签、require异步、ES6的import等三种方式引入使用。
 
 ### Introductions of use
 
@@ -8,17 +8,17 @@ Iframefileupload.Js use native js implementation without refresh the page to upl
 ``` javascript
 iframeFileUpload({
 	type : 'post', // get/post
-	url : './test.php', // back-end url
-	elementId : ['file1', 'file2'], // a collection of the array of ids
-	data : { // data to back-end
+	url : './test.php', // 后端 url
+	elementId : ['file1', 'file2'], // input表单的id数组集合
+	data : { // 发送到后端的data
 		name : 'zym',
 		blog : 'zymseo.com'
 	},
 	success : function (res) {
-		console.log(JSON.parse(res)); // callback of success
+		console.log(JSON.parse(res)); // 成功时回调函数
 	},
 	error : function (res) {
-		console.log(res); // callback of error
+		console.log(res); // 错误时回调函数
 	}
 });
 ```
@@ -96,7 +96,7 @@ iframeFileUpload({
 ``` php
 $files = $_FILES;
 $data = $_POST;
-sleep(5); // Simulation of the back-end processing data, even if it takes a long time, ensures that the front end can receive data from back-end.
+sleep(5); // 模拟后端处理数据，即使需要很长时间，也确保前端能正常收到返回值
 echo json_encode($files); 
 // echo json_encode($data); 
 ```
