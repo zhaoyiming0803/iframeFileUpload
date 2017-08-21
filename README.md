@@ -1,4 +1,4 @@
-# iframefileupload.js introduction
+# iframefileupload.js简介
 
 Iframefileupload.js使用原生JS编写，无需依赖如jQuery等第三方插件库，实现页面无刷新文件上传，兼容script标签、require异步、ES6的import等三种方式引入使用。
 
