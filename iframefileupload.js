@@ -97,6 +97,10 @@
 				} catch (e) {
 					_error(e);
 				}
+
+				oBody.removeChild(oDoc.querySelector('#iframe' + id));
+				oBody.removeChild(oDoc.querySelector('#form' + id));
+
 				iframe = form = opt = null;
 				clearTimeout(submitTimer);
 				clearInterval(getDataTimer);
