@@ -1,26 +1,27 @@
 /*
- * Description: Iframefileupload.Js use native js implementation without refresh the page to upload files, 
- * at the same time out of the jquery and ajax, with the least amount of code libraries depend on the realization of upload files at the same time, 
- * it can be passed to back-end json data, etc.
+ * Description: iframefileupload.js通过原生JS实现，用最少的代码库依赖实现页面无刷新上传文件的同时也可以向后端传递json数据等。
  * User: zymseo.com
  * Date: 2017/08/15
- * Released under Apache2.0 license, https://github.com/zymseo/iframeFileUpload
+ * License: Apache2.0 , https://github.com/zymseo/iframeFileUpload
 */
 
-;(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) : (global.iframeFileUpload = factory());
-})(this, function () {
+;(function (global, oDoc, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined'
+	? module.exports = factory(oDoc)
+	: typeof define === 'function' && define.amd
+	? define([], function () {
+		return factory(oDoc);
+	})
+	: (global.iframeFileUpload = factory(oDoc));
+})(this, document, function (oDoc) {
 	'use strict';
 
-	// The string is converted to a dom object
 	function strToDom (str) {
-		var oDiv = document.createElement("div");
+		var oDiv = oDoc.createElement("div");
 		oDiv.innerHTML = str;
 		return oDiv.childNodes[0];
 	}
 	
-	// Create an iframe
 	function createUploadIframe (oDoc, oBody, id) {
 		var iframeId = 'iframe' + id,
 			iframeHtml = '<iframe name="'+ iframeId +'" id="'+ iframeId +'" src="about:blank" frameborder="0" style="display:none;"></iframe>';
@@ -28,7 +29,6 @@
 		return oDoc.querySelector('#' + iframeId);
 	}
 	
-	// Create a form
 	function createUploadForm (oDoc, oBody, url, data, id, method) {
 		var formId = 'form' + id,
 			tmpInpt = null,
@@ -43,33 +43,30 @@
 		return oDoc.querySelector('#' + formId);
 	}
 
-	// Submit form
 	function formSubmit (oForm) {
 		oForm.submit();
 	}
 
-	// Gets the data returned from the back end
-	function getData (oForm) {
-		return oForm.contentWindow.document.body.innerHTML;
+	// 从后端获取到的数据
+	function getData (iframe) {
+		return iframe.contentWindow.document.body.innerHTML;
 	}
 	
-	// The upload class
 	function IframeFileUpload (opt) {
 		this.opt = opt;
 	}
 
 	IframeFileUpload.prototype.init = function () {
 		var opt = this.opt,
-			_type = opt.type ? opt.type : 'post', // get/post
-			_url = opt.url, // back-end url
-			_elementId = typeof opt.elementId === 'string' ? [opt.elementId] : opt.elementId ? opt.elementId : false, // a collection of the array of ids
+			_type = 'post',
+			_url = opt.url, // 后端url
+			_elementId = typeof opt.elementId === 'string' ? [opt.elementId] : opt.elementId ? opt.elementId : false, // 上传表单的id数组集合，例：['file1', 'file2']
 			_elementIdLen = _elementId ? _elementId.length : 0,
-			_data = opt.data, // data to back-end
-			_success = opt.success, // callback of success
-			_error = opt.error, // callback of error
-			oDoc = document,
+			_data = opt.data, // 发送到后端的数据
+			_success = opt.success, // 成功回调
+			_error = opt.error, // 失败回调
 			oBody = oDoc.body,
-			id = new Date().getTime(), // random id
+			id = new Date().getTime(),
 			iframe = createUploadIframe(oDoc, oBody, id),
 			form = createUploadForm(oDoc, oBody, _url, _data, id, _type),
 			tmpNode = null,
@@ -108,7 +105,6 @@
 		}, 100);
 	};
 
-	// Initialize the object to get the parameters
 	function iframeFileUpload (opt) {
 		new IframeFileUpload(opt).init();
 	}

@@ -1,13 +1,12 @@
 # iframefileupload.js简介
 
-Iframefileupload.js使用原生JS编写，无需依赖如jQuery等第三方插件库，实现页面无刷新文件上传，兼容script标签、require异步、ES6的import等三种方式引入使用。
+iframefileupload.js通过原生JS实现，用最少的代码库依赖实现页面无刷新上传文件的同时也可以向后端传递json数据等。
 
-### Introductions of use
+### 使用方法
 
-### configuration
+### 配置
 ``` javascript
 iframeFileUpload({
-	type : 'post', // get/post
 	url : './test.php', // 后端 url
 	elementId : ['file1', 'file2'], // input表单的id数组集合
 	data : { // 发送到后端的data
@@ -31,13 +30,12 @@ iframeFileUpload({
 <input type="button" value="提交" id="btn" />
 ```
 
-### （1）script tag:
+### （1）使用script 标签引入:
 
 ``` javascript
 <script type="text/javascript" src="iframeFileUpload.js"></script>
 <script type="text/javascript">
 	iframeFileUpload({
-		type : 'post',
 		url : './test.php',
 		elementId : ['file1', 'file2'],
 		data : {
@@ -53,11 +51,10 @@ iframeFileUpload({
 	});
 </script>
 ```
-### （2）require async:
+### （2）使用requireJs异步引入:
 ``` javascript
 require(['iframeFileUpload'], function (iframeFileUpload) {
 	iframeFileUpload({
-		type : 'post',
 		url : './test.php',
 		elementId : ['file1', 'file2'],
 		data : {
@@ -73,11 +70,10 @@ require(['iframeFileUpload'], function (iframeFileUpload) {
 	});
 });
 ```
-### （3）ES6 grammar：
+### （3）使用ES6方式导入：
 ``` javascript
 import iframeFileUpload from './iframeFileUpload.js';
 iframeFileUpload({
-	type : 'post',
 	url : './test.php',
 	elementId : ['file1', 'file2'],
 	data : {
@@ -101,6 +97,6 @@ echo json_encode($files);
 // echo json_encode($data); 
 ```
 ### iframeFileUpload.js可与[@文件校验插件](https://github.com/zymseo/validateFileUpload)配合使用！
-### Released under Apache2.0 license
+### 基于 Apache2.0 license 开源
 - 博客：[@赵一鸣](http://www.zymseo.com)
 - QQ：1047832475
