@@ -43,13 +43,9 @@
 		return oDoc.querySelector('#' + formId);
 	}
 
-	function formSubmit (oForm) {
-		oForm.submit();
-	}
-
 	// 从后端获取到的数据
 	function getData (iframe) {
-		return iframe.contentWindow.document.body.innerHTML;
+		return iframe.contentWindow.document.body.innerHTML || iframe.contentDocument.body.innerHTML;
 	}
 	
 	function IframeFileUpload (opt) {
@@ -69,12 +65,11 @@
 			id = new Date().getTime(),
 			iframe = createUploadIframe(oDoc, oBody, id),
 			form = createUploadForm(oDoc, oBody, _url, _data, id, _type),
+			frag = null,
 			tmpNode = null,
 			oldNode = null,
 			i = 0,
-			submitTimer = null,
-			iframeContent = '',
-			frag = null;
+			iframeContent = '';
 			
 		if (_elementIdLen) {
 			frag = oDoc.createDocumentFragment();
@@ -85,12 +80,9 @@
 				frag.appendChild(oldNode);
 			}
 			form.appendChild(frag);
+			form.submit();
 			frag = null;
 		}
-
-		submitTimer = setTimeout(function () {
-			formSubmit(form);
-		}, 100);
 
 		iframe.onload = function () {
 			try {
@@ -103,8 +95,6 @@
 			oBody.removeChild(oDoc.querySelector('#form' + id));
 
 			iframe = form = opt = null;
-			clearTimeout(submitTimer);
-			submitTimer = null;
 		};
 	};
 
