@@ -32,7 +32,7 @@
 	function createUploadForm (oDoc, oBody, url, data, id, method) {
 		var formId = 'form' + id,
 			tmpInpt = null,
-			formHtml = '<form action="'+ url +'" target="iframe'+ id +'" name="fileinfo" method="POST" enctype="multipart/form-data" id="'+ formId +'" style="display:none;">';
+			formHtml = '<form action="'+ url +'" target="iframe'+ id +'" name="fileinfo" method="POST" enctype="multipart/form-data" id="'+ formId +'" style="display: none;">';
 		
 		for (var prop in data) {
 			formHtml += '<input type="text" name="'+ prop +'" value="'+ data[prop] +'" />';
@@ -70,39 +70,42 @@
 			iframe = createUploadIframe(oDoc, oBody, id),
 			form = createUploadForm(oDoc, oBody, _url, _data, id, _type),
 			tmpNode = null,
+			oldNode = null,
 			i = 0,
 			submitTimer = null,
-			getDataTimer = null,
-			iframeContent = '';
-		
+			iframeContent = '',
+			frag = null;
+			
 		if (_elementIdLen) {
+			frag = document.createDocumentFragment();
 			for (; i < _elementIdLen; i += 1) {
-				tmpNode = oDoc.querySelector('#' +_elementId[i]).cloneNode(true);
-				form.appendChild(tmpNode);
+				oldNode = oDoc.querySelector('#' +_elementId[i]);
+				tmpNode = oldNode.cloneNode(true);
+				oBody.insertBefore(tmpNode, oldNode);
+				frag.appendChild(oldNode);
 			}
+			form.appendChild(frag);
+			frag = null;
 		}
 
 		submitTimer = setTimeout(function () {
 			formSubmit(form);
-			iframeContent = iframe.contentWindow.document.body.innerHTML;
-		}, 200);
-
-		getDataTimer = setInterval(function () {
-			if (iframeContent !== iframe.contentWindow.document.body.innerHTML) {
-				try {
-					_success(getData(iframe));
-				} catch (e) {
-					_error(e);
-				}
-
-				oBody.removeChild(oDoc.querySelector('#iframe' + id));
-				oBody.removeChild(oDoc.querySelector('#form' + id));
-
-				iframe = form = opt = null;
-				clearTimeout(submitTimer);
-				clearInterval(getDataTimer);
-			}
 		}, 100);
+
+		iframe.onload = function () {
+			try {
+				_success(getData(iframe));
+			} catch (e) {
+				_error(e);
+			}
+
+			oBody.removeChild(oDoc.querySelector('#iframe' + id));
+			oBody.removeChild(oDoc.querySelector('#form' + id));
+
+			iframe = form = opt = null;
+			clearTimeout(submitTimer);
+			submitTimer = null;
+		};
 	};
 
 	function iframeFileUpload (opt) {
