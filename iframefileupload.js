@@ -77,7 +77,7 @@
 			frag = null;
 			
 		if (_elementIdLen) {
-			frag = document.createDocumentFragment();
+			frag = oDoc.createDocumentFragment();
 			for (; i < _elementIdLen; i += 1) {
 				oldNode = oDoc.querySelector('#' +_elementId[i]);
 				tmpNode = oldNode.cloneNode(true);
