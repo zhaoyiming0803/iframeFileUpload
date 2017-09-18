@@ -29,7 +29,7 @@
 		return oDoc.querySelector('#' + iframeId);
 	}
 	
-	function createUploadForm (oDoc, oBody, url, data, id, method) {
+	function createUploadForm (oDoc, oBody, url, data, id) {
 		var formId = 'form' + id,
 			tmpInpt = null,
 			formHtml = '<form action="'+ url +'" target="iframe'+ id +'" name="fileinfo" method="POST" enctype="multipart/form-data" id="'+ formId +'" style="display: none;">';
@@ -64,19 +64,18 @@
 			oBody = oDoc.body,
 			id = new Date().getTime(),
 			iframe = createUploadIframe(oDoc, oBody, id),
-			form = createUploadForm(oDoc, oBody, _url, _data, id, _type),
+			form = createUploadForm(oDoc, oBody, _url, _data, id),
 			frag = null,
 			tmpNode = null,
 			oldNode = null,
-			i = 0,
 			iframeContent = '';
 			
 		if (_elementIdLen) {
 			frag = oDoc.createDocumentFragment();
-			for (; i < _elementIdLen; i += 1) {
-				oldNode = oDoc.querySelector('#' +_elementId[i]);
+			for (var i = 0; i < _elementIdLen; i += 1) {
+				oldNode = oDoc.querySelector('#' + _elementId[i]);
 				tmpNode = oldNode.cloneNode(true);
-				oBody.insertBefore(tmpNode, oldNode);
+				oldNode.parentNode.insertBefore(tmpNode, oldNode);
 				frag.appendChild(oldNode);
 			}
 			form.appendChild(frag);
