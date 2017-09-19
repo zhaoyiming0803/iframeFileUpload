@@ -54,7 +54,6 @@
 
 	IframeFileUpload.prototype.init = function () {
 		var opt = this.opt,
-			_type = 'post',
 			_url = opt.url, // 后端url
 			_elementId = typeof opt.elementId === 'string' ? [opt.elementId] : opt.elementId ? opt.elementId : false, // 上传表单的id数组集合，例：['file1', 'file2']
 			_elementIdLen = _elementId ? _elementId.length : 0,
@@ -67,8 +66,7 @@
 			form = createUploadForm(oDoc, oBody, _url, _data, id),
 			frag = null,
 			tmpNode = null,
-			oldNode = null,
-			iframeContent = '';
+			oldNode = null;
 			
 		if (_elementIdLen) {
 			frag = oDoc.createDocumentFragment();
