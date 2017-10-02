@@ -29,6 +29,7 @@ iframeFileUpload({
 ### html
 
 ``` html
+<!-- 注意：一定要添加name属性 -->
 <input type="file" name="file1" id="file1" />
 <input type="file" name="file2" id="file2" />
 <input type="button" value="提交" id="btn" />
