@@ -6,13 +6,9 @@
 */
 
 ;(function (global, oDoc, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined'
-	? module.exports = factory(oDoc)
-	: typeof define === 'function' && define.amd
-	? define([], function () {
-		return factory(oDoc);
-	})
-	: (global.iframeFileUpload = factory(oDoc));
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(oDoc) :
+	typeof define === 'function' && define.amd ? define([], function () {return factory(oDoc);}) :
+	(global.iframeFileUpload = factory(oDoc));
 })(this, document, function (oDoc) {
 	'use strict';
 
@@ -73,6 +69,7 @@
 			for (var i = 0; i < _elementIdLen; i += 1) {
 				oldNode = oDoc.querySelector('#' + _elementId[i]);
 				tmpNode = oldNode.cloneNode(true);
+				
 				oldNode.parentNode.insertBefore(tmpNode, oldNode);
 				frag.appendChild(oldNode);
 			}
