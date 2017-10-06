@@ -69,7 +69,6 @@
 			for (var i = 0; i < _elementIdLen; i += 1) {
 				oldNode = oDoc.querySelector('#' + _elementId[i]);
 				tmpNode = oldNode.cloneNode(true);
-				
 				oldNode.parentNode.insertBefore(tmpNode, oldNode);
 				frag.appendChild(oldNode);
 			}
