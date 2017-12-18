@@ -84,10 +84,10 @@
 				_error(e);
 			}
 
+			iframe = form = opt = null;
+
 			oBody.removeChild(oDoc.querySelector('#iframe' + id));
 			oBody.removeChild(oDoc.querySelector('#form' + id));
-
-			iframe = form = opt = null;
 		};
 	};
 
