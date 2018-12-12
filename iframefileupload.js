@@ -1,7 +1,7 @@
 /*
- * Description: iframefileupload.js通过原生JS实现，用最少的代码库依赖实现页面无刷新上传文件的同时也可以向后端传递json数据等。
- * User: zhaoyiming
- * Date: 2017/08/15
+ * iframefileupload.js通过原生JS实现，用最少的代码库依赖实现页面无刷新上传文件的同时也可以向后端传递json数据等。
+ * @author: zhaoyiming
+ * @since: 2017/08/15
  * License: Apache2.0 , https://github.com/zymfe/iframeFileUpload
 */
 
