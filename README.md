@@ -101,7 +101,7 @@ sleep(5); // 模拟后端处理数据，即使需要很长时间，也确保前�
 echo json_encode($files); 
 // echo json_encode($data); 
 ```
-### iframeFileUpload.js可与[@文件校验插件](https://github.com/zymseo/validateFileUpload)配合使用！
+### iframeFileUpload.js可与[@文件校验插件](https://github.com/zymfe/validateFileUpload)配合使用！
 ### 基于 Apache2.0 license 开源
 - 博客：[@赵一鸣](http://www.zymseo.com)
 - QQ：1047832475
