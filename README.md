@@ -11,16 +11,16 @@ iframefileupload.js通过原生JS实现，用最少的代码库依赖实现页�
 ### 配置
 ``` javascript
 iframeFileUpload({
-	url : './test.php', // 后端 url
-	elementId : ['file1', 'file2'], // input表单的id数组集合
-	data : { // 发送到后端的data
-		name : 'zym',
-		blog : 'zymseo.com'
+	url: './test.php', // 后端 url
+	elementId: ['file1', 'file2'], // input表单的id数组集合
+	data: { // 发送到后端的data
+		name: 'zym',
+		blog: 'zymseo.com'
 	},
-	success : function (res) {
-		console.log(JSON.parse(res)); // 成功时回调函数
+	success: function (res) {
+		console.log(res); // 成功时回调函数
 	},
-	error : function (res) {
+	error: function (res) {
 		console.log(res); // 错误时回调函数
 	}
 });
@@ -41,16 +41,16 @@ iframeFileUpload({
 <script type="text/javascript" src="iframeFileUpload.js"></script>
 <script type="text/javascript">
 	iframeFileUpload({
-		url : './test.php',
-		elementId : ['file1', 'file2'],
-		data : {
-			name : 'zym',
-			blog : 'zymseo.com'
+		url: './test.php',
+		elementId: ['file1', 'file2'],
+		data: {
+			name: 'zym',
+			blog: 'zymseo.com'
 		},
-		success : function (res) {
-			console.log(JSON.parse(res));
+		success: function (res) {
+			console.log(res);
 		},
-		error : function (res) {
+		error: function (res) {
 			console.log(res);
 		}
 	});
@@ -60,16 +60,16 @@ iframeFileUpload({
 ``` javascript
 require(['iframeFileUpload'], function (iframeFileUpload) {
 	iframeFileUpload({
-		url : './test.php',
-		elementId : ['file1', 'file2'],
-		data : {
-			name : 'zym',
-			blog : 'zymseo.com'
+		url: './test.php',
+		elementId: ['file1', 'file2'],
+		data: {
+			name: 'zym',
+			blog: 'zymseo.com'
 		},
-		success : function (res) {
-			console.log(JSON.parse(res));
+		success: function (res) {
+			console.log(res);
 		},
-		error : function (res) {
+		error: function (res) {
 			console.log(res);
 		}
 	});
@@ -79,16 +79,16 @@ require(['iframeFileUpload'], function (iframeFileUpload) {
 ``` javascript
 import iframeFileUpload from './iframeFileUpload.js';
 iframeFileUpload({
-	url : './test.php',
-	elementId : ['file1', 'file2'],
-	data : {
+	url: './test.php',
+	elementId: ['file1', 'file2'],
+	data: {
 		name : 'zym',
 		blog : 'zymseo.com'
 	},
-	success : function (res) {
+	success: function (res) {
 		console.log(JSON.parse(res));
 	},
-	error : function (res) {
+	error: function (res) {
 		console.log(res);
 	}
 });

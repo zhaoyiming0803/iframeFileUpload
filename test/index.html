@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="file" name="file1" id="file1" />
+  <input type="file" name="file2" id="file2" />
+  <input type="button" value="提交" id="btn" />
+
+  <script src="../src/iframefileupload.js"></script>
+  <script>
+    ;(function (window, document) {
+      document.querySelector('#btn').onclick = function () {
+        iframeFileUpload({
+          url : './index.php',
+          elementId : ['file1', 'file2'],
+          data : {
+            name : 'zym',
+            blog : 'zymseo.com'
+          },
+          success : function (res) {
+            console.log(res);
+          },
+          error : function (res) {
+            console.log(res);
+          }
+        });
+      }
+    })(window, document);
+  </script>
+
+</body>
+</html>
