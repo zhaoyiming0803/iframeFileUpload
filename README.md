@@ -15,7 +15,7 @@ iframeFileUpload({
 	elementId: ['file1', 'file2'], // input表单的id数组集合
 	data: { // 发送到后端的data
 		name: 'zym',
-		blog: 'zymseo.com'
+		blog: 'https://zhaoyiming0803.com'
 	},
 	success: function (res) {
 		console.log(res); // 成功时回调函数
@@ -45,7 +45,7 @@ iframeFileUpload({
 		elementId: ['file1', 'file2'],
 		data: {
 			name: 'zym',
-			blog: 'zymseo.com'
+			blog: 'zhaoyiming0803.com'
 		},
 		success: function (res) {
 			console.log(res);
@@ -64,7 +64,7 @@ require(['iframeFileUpload'], function (iframeFileUpload) {
 		elementId: ['file1', 'file2'],
 		data: {
 			name: 'zym',
-			blog: 'zymseo.com'
+			blog: 'https://zhaoyiming0803.com'
 		},
 		success: function (res) {
 			console.log(res);
@@ -83,7 +83,7 @@ iframeFileUpload({
 	elementId: ['file1', 'file2'],
 	data: {
 		name : 'zym',
-		blog : 'zymseo.com'
+		blog : 'https://zhaoyiming0803.com'
 	},
 	success: function (res) {
 		console.log(JSON.parse(res));
@@ -103,5 +103,5 @@ echo json_encode($files);
 ```
 ### iframeFileUpload.js可与[@文件校验插件](https://github.com/zymfe/validateFileUpload)配合使用！
 ### 基于 Apache2.0 license 开源
-- 博客：[@赵一鸣](http://www.zymseo.com)
+- 博客：[@赵一鸣](https://zhaoyiming0803.com)
 - QQ：1047832475
